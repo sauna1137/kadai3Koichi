@@ -28,11 +28,11 @@ class ViewController: UIViewController {
         var num1 = Double(textFields[0].text ?? "") ?? 0.0
         var num2 = Double(textFields[1].text ?? "") ?? 0.0
 
-        if signSwitches[0].isOn == false {
+        if signSwitches[0].isOn == true {
             num1 *= -1
         }
 
-        if signSwitches[1].isOn == false {
+        if signSwitches[1].isOn == true {
             num2 *= -1
         }
 
