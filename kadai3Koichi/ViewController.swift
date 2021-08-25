@@ -25,21 +25,27 @@ class ViewController: UIViewController {
     }
 
     private func calculateResult() {
-        var num1 = Double(textFields[0].text ?? "") ?? 0.0
-        var num2 = Double(textFields[1].text ?? "") ?? 0.0
+        let num1 = Double(textFields[0].text ?? "") ?? 0.0
+        let num2 = Double(textFields[1].text ?? "") ?? 0.0
 
-        if signSwitches[0].isOn == true {
-            num1 *= -1
+        let signedNum1: Double
+        if signSwitches[0].isOn {
+            signedNum1 = -num1
+        } else {
+            signedNum1 = num1
         }
 
-        if signSwitches[1].isOn == true {
-            num2 *= -1
+        let signedNum2: Double
+        if signSwitches[1].isOn {
+            signedNum2 = -num2
+        } else {
+            signedNum2 = num2
         }
 
-        beforeCalucLabels[0].text = String(num1)
-        beforeCalucLabels[1].text = String(num2)
+        beforeCalucLabels[0].text = String(signedNum1)
+        beforeCalucLabels[1].text = String(signedNum2)
 
-        let result = num1 + num2
+        let result = signedNum1 + signedNum2
         resultLabel.text = String(result)
     }
 }
